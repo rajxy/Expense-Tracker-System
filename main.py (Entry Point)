@@ -1,0 +1,35 @@
+from src.expense_manager import ExpenseManager
+from src.budget_reporter import BudgetReporter
+from src.exporter import TransactionExporter
+from tabulate import tabulate
+
+def main():
+    print("==============================================")
+    print("       EXPENSE TRACKER SYSTEM (PYTHON)        ")
+    print("==============================================")
+
+    manager = ExpenseManager()
+    reporter = BudgetReporter()
+
+    # Log sample expenses
+    manager.add_expense("Grocery Shopping", 125.50, "Food", tags=["weekly", "supermarket"])
+    manager.add_expense("AWS Cloud Hosting", 45.00, "Subscriptions", tags=["cloud", "tech"])
+    manager.add_expense("Coffee with Team", 18.25, "Food", tags=["social"])
+
+    # Multi-parameter filtering demo
+    print("\n[INFO] Filtering Expenses by Category: 'Food'...")
+    filtered_df = manager.filter_expenses(category="Food")
+    print(tabulate(filtered_df, headers="keys", tablefmt="psql", showindex=False))
+
+    # Monthly Summary Report demo
+    print("\n[INFO] Generating Automated Monthly Budget Summary...")
+    report = reporter.generate_monthly_summary("2026-07")
+    print(report)
+
+    # Export capability demo
+    print("\n[INFO] Exporting Financial Transactions to Excel...")
+    output_file = TransactionExporter.export_data(filtered_df, format_type="excel", filename="Food_Expenses_Report")
+    print(f"[SUCCESS] Financial summary exported to '{output_file}'")
+
+if __name__ == "__main__":
+    main()
