@@ -1,0 +1,20 @@
+Expense-Tracker-Python/
+│
+├── assets/                       # Demo screenshots and visual charts for README
+│   └── expense_summary.png
+├── data/                         # Local database / file storage
+│   ├── expenses.csv
+│   └── categories.json
+├── src/                          # Core source code
+│   ├── __init__.py
+│   ├── validator.py              # Input validation & data integrity rules
+│   ├── expense_manager.py        # Core CRUD, custom tagging & filtering engine
+│   ├── budget_reporter.py       # Automated monthly budget & spending insights
+│   ├── exporter.py               # CSV, Excel, and JSON transaction export engine
+│   └── analytics.py              # Visual charts (Matplotlib / Seaborn)
+│
+├── .gitignore
+├── LICENSE                       # MIT License
+├── README.md                     # Comprehensive GitHub documentation
+├── main.py                       # Application entry point (CLI/GUI)
+└── requirements.txt              # Python dependencies
